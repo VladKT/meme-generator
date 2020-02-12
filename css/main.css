@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: lightslategray;
+}
+
+.gallery-container {
+    display: grid;
+    gap: 5px;
+    /* height: 100vh; */
+    grid-template-columns:repeat(auto-fill, minmax(100px, 1fr)); 
+}
+
+.box-img {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+ 
+}
+
+.hidden {
+    display:none;
+}
