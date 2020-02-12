@@ -24,3 +24,7 @@ body {
 .hidden {
     display:none;
 }
+
+.icon-btn {
+    height: 10px;
+}

@@ -26,7 +26,7 @@ var gImgs = [
 var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
-    lines: [{ txt: 'I never eat Falafel', size: 60, align: 'center', color: 'white' }]
+    lines: [{ txt: 'I never eat Falafel', size: 60, align: 'center', color: 'white', height: 100 }]
 }
 
 function getImgUrl(id) {
@@ -53,4 +53,13 @@ function setSelectedImgId(id) {
 
 function getSelectedImgId() {
     return gMeme.selectedImgId;
+}
+
+function fontChange(delta){
+    gMeme.lines[gMeme.selectedLineIdx].size += delta;
+}
+
+
+function LinePosChange(delta) {
+    gMeme.lines[gMeme.selectedLineIdx].height += delta;
 }

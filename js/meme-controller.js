@@ -40,14 +40,23 @@ function drawText(ev) {
     gCtx.fillStyle = line.color;
     gCtx.font = `${line.size}px Impact`;
     gCtx.textAlign = line.align;
-    gCtx.fillText(line.txt, gCanvas.width / 2, 100);
-    gCtx.strokeText(line.txt, gCanvas.width / 2, 100);
+    gCtx.fillText(line.txt, gCanvas.width / 2, line.height);
+    gCtx.strokeText(line.txt, gCanvas.width / 2, line.height);
 }
 
 function onImput(txt) {
-    var id
     setTxt(txt);
-    drawImg2(4);
+    drawImg2();
+}
+
+function onFontChange(delta) {
+    fontChange(delta);
+    drawImg2();
+}
+
+function onLinePosChange(delta) {
+    LinePosChange(delta);
+    drawImg2();
 }
 
 function renderImgs() {
