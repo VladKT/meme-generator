@@ -159,6 +159,9 @@ canvas {
 footer {
     height: 207px;
     background-color: #ff7f00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* helpers */
