@@ -11,12 +11,34 @@ body {
     display: grid;
     gap: 5px;
     /* height: 100vh; */
-    grid-template-columns:repeat(auto-fill, minmax(100px, 1fr)); 
+    grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); 
+}
+.canvas-container {
+    position: relative;
+    display: flex;
+    border: 2px solid;
+    padding: 20px;
+}
+canvas {
+    width: 40%;
 }
 
+.control {
+    padding: 40px;
+    flex-grow: 1;
+}
+
+.close-control {
+    position: absolute;
+    top:20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    
+}
 .box-img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-color: blue;
  
 }
@@ -27,4 +49,8 @@ body {
 
 .icon-btn {
     height: 10px;
+}
+
+.meme-input {
+    display: block;
 }

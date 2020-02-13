@@ -14,11 +14,16 @@ function init() {
 function onGalImgClick(id) {
     setSelectedImgId(id);
     drawImg2();
-    // var elCanvas = document.querySelector('.canvas-container');
-    // elCanvas.classList.toggle("hidden");
+    toggleControl();
+    
 }
 
-
+function toggleControl() {
+    var elCanvas = document.querySelector('.canvas-container');
+    elCanvas.classList.toggle("hidden");
+    var elGallery = document.querySelector('.gallery-container');
+    elGallery.classList.toggle("hidden");
+}
 
 function drawImg2() {
     var id = getSelectedImgId();
@@ -32,16 +37,16 @@ function drawImg2() {
 
 
 function drawText(ev) {
-    // const offsetX = ev.offsetX;
-    // const offsetY = ev.offsetY;
-    var line = getLine();
-    gCtx.lineWidth = '2';
-    gCtx.strokeStyle = 'black';
-    gCtx.fillStyle = line.color;
-    gCtx.font = `${line.size}px Impact`;
-    gCtx.textAlign = line.align;
-    gCtx.fillText(line.txt, gCanvas.width / 2, line.height);
-    gCtx.strokeText(line.txt, gCanvas.width / 2, line.height);
+    var lines = getLines();
+    lines.forEach(line => {
+        gCtx.lineWidth = '2';
+        gCtx.strokeStyle = 'black';
+        gCtx.fillStyle = line.color;
+        gCtx.font = `${line.size}px Impact`;
+        gCtx.textAlign = line.align;
+        gCtx.fillText(line.txt, gCanvas.width / 2, line.height);
+        gCtx.strokeText(line.txt, gCanvas.width / 2, line.height);
+    });
 }
 
 function onImput(txt) {
@@ -72,4 +77,19 @@ function downloadCanvas(elLink) {
     const data = gCanvas.toDataURL()
     elLink.href = data
     elLink.download = 'meme'
+}
+
+function OnSwitchLine() {
+    document.querySelector('.meme-input').value='';
+    switchLine();
+}
+
+function onAddLine() {
+    addLine();
+    drawImg2();
+}
+
+function onRemoveLine() {
+    removeLine();
+    drawImg2();
 }

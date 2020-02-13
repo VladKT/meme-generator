@@ -7,23 +7,26 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body onload="init()">
+    <h1>Das Memas generator</h1>
     <div class="gallery-container">
         
     </div>
-    <div class="canvas-container" >
+    <div class="canvas-container hidden" >
         <canvas id="my-canvas" height="500" width="500" onclick="drawText(event)" style="border: 1px solid black;"></canvas>
         <div class="control">
-            <input type="text" onkeyup="onImput(this.value)">
+            <button class="close-control" onclick="toggleControl()">X</button>
+            <input class="meme-input" type="text" placeholder="can i haz letters?" onkeyup="onImput(this.value)">
             <button onclick="onFontChange(5)"><img class="icon-btn" src="./icons/increase font - icon.png"></button>
             <button onclick="onFontChange(-5)"><img class="icon-btn" src="./icons/decrease font - icon.png"></button>
-            <button onclick="onLinePosChange(5)">↑</button>
-            <button onclick="onLinePosChange(-5)">↓</button>
-            
+            <button onclick="onLinePosChange(-5)">↑</button>
+            <button onclick="onLinePosChange(5)">↓</button>
+            <button onclick="OnSwitchLine()"><img class="icon-btn" src="./icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+            <button onclick="onAddLine()"><img class="icon-btn" src="./icons/add.png"></button>
+            <button onclick="onRemoveLine()"><img class="icon-btn" src="./icons/trash.png"></button>
             <a href="#" onclick="downloadCanvas(this)" download="">Get Meme</a>
         </div>
     </div>
     <img src="meme-imgs/1.jpg" alt="" style="display: none;">
-    <hr>
     <script src="js/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
 </body>
