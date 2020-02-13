@@ -8,7 +8,6 @@ function init() {
     gCanvas = document.getElementById('my-canvas')
     gCtx = gCanvas.getContext('2d')
     renderImgs();
-    // drawImg2(4);
 }
 
 function onGalImgClick(id) {
@@ -36,7 +35,7 @@ function drawImg2() {
 }
 
 
-function drawText(ev) {
+function drawText() {
     var lines = getLines();
     lines.forEach(line => {
         gCtx.lineWidth = '2';
@@ -67,7 +66,8 @@ function onLinePosChange(delta) {
 function renderImgs() {
     var elgallery = document.querySelector('.gallery-container');
     var strHtml = ``;
-    gImgs.forEach(img => {
+    var imgs = getImgs();
+    imgs.forEach(img => {
         strHtml += `<img onclick="onGalImgClick(${img.id})" class="box-img" src="${img.url}" >`;
     });
     elgallery.innerHTML = strHtml;
@@ -92,4 +92,9 @@ function onAddLine() {
 function onRemoveLine() {
     removeLine();
     drawImg2();
+}
+
+function toggleMenu() {
+    var mainMenu = document.getElementById('mainMenu');
+    mainMenu.classList.toggle('open');
 }

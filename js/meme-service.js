@@ -30,6 +30,9 @@ var gMeme = {
         { txt: 'I never eat Falafel', size: 60, align: 'center', color: 'white', height: 80 },
         { txt: 'I do eat falafel', size: 60, align: 'center', color: 'white', height: 450 }]
 }
+function getImgs() {
+    return gImgs;
+}
 
 function getImgUrl(id) {
     updateSelectedId(id);

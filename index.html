@@ -7,12 +7,31 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body onload="init()">
-    <h1>Das Memas generator</h1>
+    <header>
+        <section class="container header-wrapper flex align-center">
+            <div class="logo flex-1">
+                <img src="./icons/memgen-logo.png" alt="">
+            </div>
+            <nav id="mainMenu" class="main-menu-wrapper">
+                <ul class="main-menu clean-list flex align-center">
+                    <li>
+                        <a href="#" class="active">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                </ul>
+                <button class="toggle-menu-btn" onclick="toggleMenu()" alt="Open main menu">☰</button>
+                <div class="toggle-menu-screen screen" onclick="toggleMenu()" alt="toggle main menu"></div>
+            </nav>
+        </section>
+    </header>
+    <div class="search-bar"></div>
     <div class="gallery-container">
         
     </div>
     <div class="canvas-container hidden" >
-        <canvas id="my-canvas" height="500" width="500" onclick="drawText(event)" style="border: 1px solid black;"></canvas>
+        <canvas id="my-canvas" height="500" width="500" style="border: 1px solid black;"></canvas>
         <div class="control">
             <button class="close-control" onclick="toggleControl()">X</button>
             <input class="meme-input" type="text" placeholder="can i haz letters?" onkeyup="onImput(this.value)">
@@ -26,7 +45,21 @@
             <a href="#" onclick="downloadCanvas(this)" download="">Get Meme</a>
         </div>
     </div>
-    <img src="meme-imgs/1.jpg" alt="" style="display: none;">
+    <section class="about" id="about">
+        <img src="./meme-imgs/miss-piggy.jpg" alt="">
+        <div class="info-txt">
+            <h2>Monica Geller</h2>
+            <p>is a fictional character, one of the six main characters who appears on the American sitcom Friends (1994–2004). Created by David Crane and Marta Kauffman</p>
+        </div>
+    </section>
+    <footer>
+        <section class="container">
+            <div class="logo flex-1">
+                <img src="./icons/memgen-logo.png" alt="">
+            </div>
+            <small>All rights reserved 2020</small>
+        </section>
+    </footer>
     <script src="js/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
 </body>
