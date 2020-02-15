@@ -8,13 +8,14 @@ function init() {
     gCanvas = document.getElementById('my-canvas')
     gCtx = gCanvas.getContext('2d')
     renderImgs();
+    renderTags();
 }
 
 function onGalImgClick(id) {
     setSelectedImgId(id);
     drawImg2();
     toggleControl();
-    
+
 }
 
 function toggleControl() {
@@ -63,14 +64,28 @@ function onLinePosChange(delta) {
     drawImg2();
 }
 
-function renderImgs() {
+function renderImgs(tagVal) {
+    console.log(tagVal);
     var elgallery = document.querySelector('.gallery-container');
+    var elInput = document.querySelector('.search-input');
     var strHtml = ``;
-    var imgs = getImgs();
+    var keyword = (!tagVal) ? elInput.value : tagVal
+    // var imgs = getImgs(elInput.value);
+    var imgs = getImgs(keyword);
     imgs.forEach(img => {
         strHtml += `<img onclick="onGalImgClick(${img.id})" class="box-img" src="${img.url}" >`;
     });
     elgallery.innerHTML = strHtml;
+}
+
+function renderTags() {
+    var elTags = document.querySelector('.tags');
+    var strHtml = ``;
+    for (const key in gKeywords) {
+        strHtml += `<li onclick="renderImgs(this.innerText)" style="font-size:${16*(1+(gKeywords[key]/40))}px">${key}</li>`;
+    }
+    console.log(strHtml);
+    elTags.innerHTML = strHtml;
 }
 
 function downloadCanvas(elLink) {
@@ -80,7 +95,7 @@ function downloadCanvas(elLink) {
 }
 
 function OnSwitchLine() {
-    document.querySelector('.meme-input').value='';
+    document.querySelector('.meme-input').value = '';
     switchLine();
 }
 

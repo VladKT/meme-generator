@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Da Memas generator</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body onload="init()">
     <header>
         <section class="container header-wrapper flex align-center">
@@ -15,7 +17,7 @@
             <nav id="mainMenu" class="main-menu-wrapper">
                 <ul class="main-menu clean-list flex align-center">
                     <li>
-                        <a href="#" class="active">Gallery</a>
+                        <a href="#" onclick="init()">Gallery</a>
                     </li>
                     <li>
                         <a href="#about">About</a>
@@ -26,11 +28,17 @@
             </nav>
         </section>
     </header>
-    <div class="search-bar"></div>
-    <div class="gallery-container">
-        
+    <div class="search-bar">
+        <section class="search-control">
+            <input class="search-input" type="text">
+            <button class="search-btn" onclick="renderImgs()">Search</button>
+        </section>
+        <ul class="tags clean-list"></ul>
     </div>
-    <div class="canvas-container hidden" >
+    <div class="gallery-container">
+
+    </div>
+    <div class="canvas-container hidden">
         <canvas id="my-canvas" height="500" width="500" style="border: 1px solid black;"></canvas>
         <div class="control">
             <button class="close-control" onclick="toggleControl()">X</button>
@@ -39,7 +47,8 @@
             <button onclick="onFontChange(-5)"><img class="icon-btn" src="./icons/decrease font - icon.png"></button>
             <button onclick="onLinePosChange(-5)">↑</button>
             <button onclick="onLinePosChange(5)">↓</button>
-            <button onclick="OnSwitchLine()"><img class="icon-btn" src="./icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+            <button onclick="OnSwitchLine()"><img class="icon-btn"
+                    src="./icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
             <button onclick="onAddLine()"><img class="icon-btn" src="./icons/add.png"></button>
             <button onclick="onRemoveLine()"><img class="icon-btn" src="./icons/trash.png"></button>
             <a href="#" onclick="downloadCanvas(this)" download="">Get Meme</a>
@@ -49,7 +58,8 @@
         <img src="./meme-imgs/miss-piggy.jpg" alt="">
         <div class="info-txt">
             <h2>Monica Geller</h2>
-            <p>is a fictional character, one of the six main characters who appears on the American sitcom Friends (1994–2004). Created by David Crane and Marta Kauffman</p>
+            <p>is a fictional character, one of the six main characters who appears on the American sitcom Friends
+                (1994–2004). Created by David Crane and Marta Kauffman</p>
         </div>
     </section>
     <footer>
@@ -63,4 +73,5 @@
     <script src="js/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
 </body>
+
 </html>

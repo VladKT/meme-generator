@@ -84,6 +84,14 @@ header {
     height: 100px;
     background-color: #ffffff;
 }
+.tags {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.tags li:hover {
+    cursor: pointer;
+}
 
 .gallery-container {
     display: grid;
