@@ -36,6 +36,7 @@ function getImgs2() {
 
 function getImgs(keyword) {
     if (!keyword) return gImgs;
+    incKeyword(keyword);
     return gImgs.filter(img => img.keywords.includes(keyword));
 }
 
@@ -89,4 +90,10 @@ function removeLine() {
     if (gMeme.lines.length === 1) return;
     if (gMeme.selectedLineIdx === gMeme.lines.length - 1) gMeme.selectedLineIdx--;
      gMeme.lines.pop();
+}
+
+function incKeyword(key) {
+ for (const keyword in gKeywords) {
+     if (keyword === key) gKeywords[keyword]++;
+ } 
 }

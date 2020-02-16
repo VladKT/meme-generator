@@ -8,7 +8,7 @@ function init() {
     gCanvas = document.getElementById('my-canvas')
     gCtx = gCanvas.getContext('2d')
     renderImgs();
-    renderTags();
+    // renderTags();
 }
 
 function onGalImgClick(id) {
@@ -65,7 +65,6 @@ function onLinePosChange(delta) {
 }
 
 function renderImgs(tagVal) {
-    console.log(tagVal);
     var elgallery = document.querySelector('.gallery-container');
     var elInput = document.querySelector('.search-input');
     var strHtml = ``;
@@ -76,6 +75,7 @@ function renderImgs(tagVal) {
         strHtml += `<img onclick="onGalImgClick(${img.id})" class="box-img" src="${img.url}" >`;
     });
     elgallery.innerHTML = strHtml;
+    renderTags();
 }
 
 function renderTags() {
@@ -84,7 +84,6 @@ function renderTags() {
     for (const key in gKeywords) {
         strHtml += `<li onclick="renderImgs(this.innerText)" style="font-size:${16*(1+(gKeywords[key]/40))}px">${key}</li>`;
     }
-    console.log(strHtml);
     elTags.innerHTML = strHtml;
 }
 
